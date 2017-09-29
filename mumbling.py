@@ -8,16 +8,14 @@
 #     return '-'.join(c.upper() + c.lower() * i for i, c in enumerate(s))
 
 
-def repeat(letter, time):
-    string = letter * time
-    return string.title()
-
-
 def accum(string):
+    """Repeat each letter of a string by its location, and join all repeated substring
+    with a '-'"""
     accum_string = ""
     i = 0
     while i < len(string):
-        accum_string += repeat(string[i], i + 1)
+        substring = string[i] * (i + 1)
+        accum_string += substring.title()
         if i < (len(string) - 1):
             accum_string += "-"
         i += 1
